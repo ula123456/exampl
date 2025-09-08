@@ -5,14 +5,21 @@
  */
 class App
 {
-	protected $control = "home"; //по умолчанию
-	protected $metod = "index";  // свегда вызывался домашня страница
+	protected $controller = "home"; //по умолчанию
+	protected $method = "index";  // свегда вызывался домашня страница
 	protected $params = array(); 
-	function __construct()
-
+	
+	public function __construct()
 	{
-		// code...
-		print_r( $this->getUrl());
+		// code...// iz url videlyaem pervuyu stroku eto budet fayl controller esli on est vizivaet esli net po umolchaniyu home
+		$URL = $this->getUrl();
+		if(file_exists("private/controllers/".$URL[0].".php")){ 
+			$this->controller = $URL[0];
+		}			
+		require ("private/controllers/".$this->controller.".php");
+		
+		$this->controller = new $this->controller();
+		
 	}
 
 	private function getURL()
