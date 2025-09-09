@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-</head>
-<body>
-<h1> this is home page view</h1>
-</body>
-</html>
+<?php  $this->view('includes/header'); ?>
+<?php $this->view('includes/nav')?>
+<div class="container-fluid">
+		<h1><i class="fa fa-plus"></i>This is home</h1>
+	</div>
+
+	<?php 
+
+		echo "<pre>";
+		print_r($rows);
+	?>
+<?php  $this->view('includes/futer'); ?>
