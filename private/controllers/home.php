@@ -9,11 +9,22 @@ class Home extends Controller
 	
 	function index()
 	{
-		$user = $this->load_model('User');
+		
+		$user = new User();
+		
 
+			$arr['firstname'] = 'alim';
+        	$arr['lastname'] = 'babam';
+        	$arr['date'] = '2025-09-09 07:32:18';
+            $arr['url_adress'] = 'fgfg';
+            $arr['gender'] = 'female';
+            $arr['school_id'] = '12';
+            $arr['rang'] = 'student';
+
+		$user->insert($arr);
 		$data = $user->findAll();
 		//$data = $user->where('firstname','ali');
-		echo $this->view('home',['rows'=>$data]);
+		$this->view('home',['rows'=>$data]);
 		
 	}
 }
