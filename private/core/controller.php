@@ -30,4 +30,9 @@ class Controller
 		}
 		return folse;
 	}
+	public function redirect($link){
+
+		header("Location: /".trim($link,"/"));
+		die;
+	}
 }

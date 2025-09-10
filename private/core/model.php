@@ -5,14 +5,16 @@
  */
 class Model extends Database
 {
+	public string $table = '';
+	public $errors = array();
 	
-
-	function __construct()
+	public function __construct()
 	{
+
 		// code...
 		if(!property_exists($this, 'table'))
 		{
-			$this->table = strtolower(Model::class)."s";
+			$this->table = strtolower($this::class) . "s";
 		}
 	}
 	public function where($column, $value)
@@ -55,7 +57,7 @@ class Model extends Database
 		}
 		
 		$str = trim($str,",") ;
-		
+
 		$data['id'] = $id;
 		$query="update $this->table set $str where id = :id";
 
@@ -63,9 +65,9 @@ class Model extends Database
 	}
 	public function delete($id)
 	{
-		
-		$query="select * from $this->table";
-		
+		$query="DELETE FROM $this->table WHERE id = :id";
+		$data['id'] = $id;
+
 		return $this->query($query,$data);
 	}
 }

@@ -1,7 +1,9 @@
 
 <?php $this->view('includes/header')?>
+<?php  print_r($errors);?>
 	
 	<div class="container-fluid">
+	<form method="post">
 		
 		<div class="p-4 mx-auto mr-4 shadow rounded" style="margin-top: 50px;width:100%;max-width: 340px;">
 			<h2 class="text-center">My School</h2>
@@ -11,12 +13,12 @@
 			<input class="my-2 form-control" type="lastname" name="lastname" placeholder="Last Name" >
 			<input class="my-2 form-control" type="email" name="email" placeholder="Email" >
 
-			<select class="my-2 form-control">
-				<option>--Select a Gender--</option>
-				<option>Male</option>
-				<option>Female</option>
+			<select class="my-2 form-control" name="gender">
+				<option value="">--Select a Gender--</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
 			</select>
-			<select class="my-2 form-control">
+			<select class="my-2 form-control" name="rang">
 				<option value="">--Select a Rank--</option>
 				<option value="student">Student</option>
 				<option value="reception">Reception</option>
@@ -31,6 +33,7 @@
 			<button class="btn btn-primary float-end">Add User</button>
 			<button class="btn btn-danger">Cancel</button>
 		</div>
+	</form>
 	</div>
 
 <?php $this->view('includes/footer')?>
