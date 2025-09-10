@@ -10,7 +10,7 @@ class Home extends Controller
 	function index()
 	{
 		
-		$user = new User();
+		$user = new user();
 		
 		$data = $user->findAll();
 		

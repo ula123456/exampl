@@ -1,3 +1,3 @@
 <?php
 
-define('ROOT', 'http://localhost/exampl');
+define('ROOT', 'http://localhost/exampl/');

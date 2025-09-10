@@ -24,7 +24,7 @@ class Database
 		$stm = $con->prepare($query);
 		if ($stm) {
 			// code...
-			var_dump($check);
+			
 			$check = $stm->execute($data);
 			if ($check) {
 				// code...

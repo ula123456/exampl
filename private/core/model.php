@@ -5,7 +5,7 @@
  */
 class Model extends Database
 {
-	public string $table = '';
+	protected $table = 'users';
 	public $errors = array();
 	
 	public function __construct()
@@ -30,6 +30,7 @@ class Model extends Database
 		
 		$query="select * from $this->table";
 		
+		
 		return $this->query($query);
 	}
 
@@ -42,7 +43,7 @@ class Model extends Database
 		
 
 		$query="INSERT INTO $this->table ($columns)  VALUES (:$values)";
-
+var_dump($query);
 		return $this->query($query,$data);
 	}
 
