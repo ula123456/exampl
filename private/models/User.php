@@ -4,6 +4,21 @@
  */
 class user extends Model
 {
+	protected $allowedColumns = [
+		'firstname',
+		'lastname',
+		'email',
+		'password',
+		'gender',
+		'rang',
+	];
+
+	protected $beforeInsert = [
+		'make_user_id', 
+		'make_school_id',
+		'hash_password'
+	];
+
 	public function validate($DATA)
 	{
 //chek firstname
@@ -61,5 +76,42 @@ class user extends Model
 		
 		return false;
 	}
+
+	protected function random_stiring($length){
+//случайно выбирая из массива $array лепит массив $text 
+	$array = array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+    $text = "";
+
+    for($x = 0; $x < $length; $x++)
+    {
+
+        $random = rand(0,61);
+        $text .= $array[$random];
+    }
+
+    return $text;
+	}
+
+	protected function make_user_id($data){
+
+		$data['user_id'] = $this->random_stiring(10);
+		return $data;
+	}
+
+	protected function make_school_id($data){
+		
+		if (isset($_SESSION['USER']->school_id)) {
+			// code...
+			$data['school_id'] = $_SESSION['USER']->school_id;
+		}
+		
+		return $data;
+	}
+
+	protected function hash_password($data){
+		$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+		return $data;}
+	
+		
 	
 }

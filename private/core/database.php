@@ -24,8 +24,8 @@ class Database
 		$stm = $con->prepare($query);
 		if ($stm) {
 			// code...
-			
-			$check = $stm->execute($data);
+			echo "<pre>"; var_dump($data );
+			$check = $stm->execute($data); 
 			if ($check) {
 				// code...
 				if ($data_type== "object") {
