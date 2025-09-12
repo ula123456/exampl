@@ -39,7 +39,7 @@ class Database
 					return $data;
 				}
 				
-				
+			
 
 			}
 		}

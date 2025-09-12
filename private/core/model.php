@@ -65,7 +65,7 @@ class Model extends Database
 
 
 		$query="INSERT INTO $this->table ($columns)  VALUES (:$values)";
-echo "<pre>"; var_dump($query, );
+
 		return $this->query($query,$data);
 	}
 
