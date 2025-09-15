@@ -19,7 +19,7 @@ class user extends Model
 		'hash_password'
 	];
 
-	public function validate($DATA)
+	public function validate($DATA)//proveryaet vvedenie dannie s formi view
 	{
 //chek firstname
 		if (empty($DATA['firstname']) || !preg_match('/^[a-zA-Z]+$/', $DATA['firstname'])  ) {
@@ -84,7 +84,6 @@ class user extends Model
 
     for($x = 0; $x < $length; $x++)
     {
-
         $random = rand(0,61);
         $text .= $array[$random];
     }
