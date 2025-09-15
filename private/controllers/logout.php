@@ -11,6 +11,7 @@ class Logout extends Controller
 	{
 		Auth::logout();
 		$this->redirect('login');
+		die;
 		
 	}
 }

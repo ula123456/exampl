@@ -37,7 +37,7 @@
           <a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a>
           <a class="dropdown-item" href="<?=ROOT?>">Dashboard</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a>
+          <a class="dropdown-item" href="logout">Logout</a>
         </div>
       </li>
     </ul>
