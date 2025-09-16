@@ -5,14 +5,14 @@
  */
 class Model extends Database
 {
-	protected $table = 'users';
+	//protected $table ;
 	public $errors = array();
 	
 	public function __construct()
 	{
 
 		// code...
-		if(!property_exists($this, 'table'))
+		if (!property_exists($this, 'table')  ) 
 		{
 			$this->table = strtolower($this::class) . "s";
 		}
@@ -65,7 +65,7 @@ class Model extends Database
 
 
 		$query="INSERT INTO $this->table ($columns)  VALUES (:$values)";
-
+//echo "<pre>";var_dump($$query);
 		return $this->query($query,$data);
 	}
 

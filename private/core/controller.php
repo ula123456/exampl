@@ -27,6 +27,8 @@ class Controller
 		{  // vizvi model i soszaday ekzemplyar klassa etoy modeli
 			require ("private/models/". ucfirst($model).".php");
 			return $model= new $model();
+
+
 		}
 		return folse;
 	}

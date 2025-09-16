@@ -19,12 +19,12 @@ class Database
 	}
 
 	public function query($query,$data=array(), $data_type="object")
-	{
+	{//echo "<pre>";var_dump($query);
 		$con = $this->connect();
 		$stm = $con->prepare($query);
 		if ($stm) {
 			// code...
-			echo "<pre>"; var_dump($data );
+//echo "<pre>";var_dump($stm);
 			$check = $stm->execute($data); 
 			if ($check) {
 				// code...

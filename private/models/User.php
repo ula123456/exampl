@@ -39,6 +39,11 @@ class user extends Model
 			// code...
 			$this->errors['email']="email is not valid";
 		}
+//chek for email exist
+		if ($this->where('email',$DATA['email']))  {
+			// code...
+			$this->errors['email']="that email is already in use";
+		}
 
 //chek for pasword
 		if (empty($DATA['password']) || $DATA['password'] !== $DATA['password2'] ) {
@@ -93,7 +98,7 @@ class user extends Model
 
 	protected function make_user_id($data){
 
-		$data['user_id'] = $this->random_stiring(10);
+		$data['user_id'] = random_stiring(10);
 		return $data;
 	}
 

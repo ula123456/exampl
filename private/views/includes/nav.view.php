@@ -19,14 +19,20 @@
         <a class="nav-link active" href="<?=ROOT?>">DASHBOARD</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=ROOT?>/users">USERS</a>
+        <a class="nav-link" href="/schools">SCHOOLS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=ROOT?>/classes">CLASSES</a>
+        <a class="nav-link" href="/users">STAFF</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/students">STUDENTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/classes">CLASSES</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="<?=ROOT?>/tests">TESTS</a>
+        <a class="nav-link" href="/tests">TESTS</a>
       </li>
 
       <li class="nav-item dropdown">
