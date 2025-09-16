@@ -16,16 +16,26 @@
 			</a>
 		</th>
 	</tr>
-</table>
+
 			<?php if($rows):?>
 					<?php foreach ($rows as $row):?>
 				 
-				<?php //var_dump($row);?>
+				<tr>
+					<td><?=$row->school?></td>
+					<td><?=$row->user->firstname?> 
+					<?=$row->user->lastname?></td>
+					<td><?= get_date($row->date)?></td>
+					<td>
+						<button class="btn-sm btn btn-info"><i class="fa fa-edit"></i></button>
+						<button class="btn-sm btn btn-danger"><i class="fa fa-trash-alt"></i></button>
+					</td>
+				</tr>
 
 	 				<?php endforeach;?>
  			<?php else:?>
  				<h4>No schools members were found at this time</h4>
  			<?php endif;?>
+ </table>
 		</div>
 
 		 

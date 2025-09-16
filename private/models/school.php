@@ -5,17 +5,17 @@
  */
 class School extends Model
 {
-
+// poklyuchaet funksii
 	protected $allowedColumns = [
         'school',
         'date',
     ];
-
+// poklyuchaet funksii
     protected $beforeInsert = [
         'make_school_id',
         'make_user_id',
     ];
-
+// poklyuchaet funksii
     protected $afterSelect = [
         'get_user',
     ];
@@ -51,6 +51,18 @@ class School extends Model
 			$data['school_id'] = random_stiring(10);
 			return $data;
 	}
+
+    protected function get_user($data)
+    {
+        $user = new user();
+        foreach ($data as $key => $row) 
+        {
+            $result = $user->where('user_id',$row->user_id);
+            $data[$key] ->user= is_array($result) ? $result[0]:false;
+        }
+            
+            return $data;
+    }
 
 	
 	

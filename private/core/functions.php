@@ -42,3 +42,7 @@ function random_stiring($length){
 
     return $text;
 	}
+function get_date($date)
+{
+		return date("jS M, Y",strtotime($date));
+}
