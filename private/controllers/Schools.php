@@ -52,4 +52,70 @@ class Schools extends Controller
 		]);
 		
 	}
+	function edit($id=null)
+	{
+		if (!Auth::logged_in()) 
+		{
+			$this->redirect('login');
+		}
+		$school = new school();
+		$errors= array();
+
+		if (count($_POST) > 0) 
+		{
+			
+//echo "<pre>";var_dump($school);
+			if ($school->validate($_POST)) 
+			{
+				$school->update($id,$_POST);
+			
+				$this->redirect('schools');
+			}else{	//erorrs
+				$errors = $school->errors;
+			}
+
+		}
+		
+		$row = $school ->where('id',$id);
+		//if (!$row) {	$row = (objekt)[];//kovertirovie masiva v obekt
+		//	$row->school = '';				}
+		
+		$this->view('schools.edit',[
+			'row'=>$row,
+			'errors'=>$errors
+		
+		]);
+		
+	}
+	function delete($id=null)
+	{
+		if (!Auth::logged_in()) 
+		{
+			$this->redirect('login');
+		}
+		$errors= array();
+		if (count($_POST) > 0) 
+		{
+			$school = new school();
+//echo "<pre>";var_dump($school);
+			if ($school->validate($_POST)) 
+			{
+				
+			
+				$school->update($id,$_POST);
+			
+				$this->redirect('schools');
+			}else{	//erorrs
+				$errors = $school->errors;
+			}
+
+		}
+		
+		
+		$this->view('schools.add',[
+			'errors'=>$errors
+		
+		]);
+		
+	}
 }
