@@ -27,7 +27,7 @@
 					<td><?= get_date($row->date)?></td>
 					<td><a href="schools/edit/<?=$row->id?>">
 						<button class="btn-sm btn btn-info"><i class="fa fa-edit"></i></button></a>
-						<a href="school/delete/<?=$row->id?>">
+						<a href="schools/delete/<?=$row->id?>">
 						<button class="btn-sm btn btn-danger"><i class="fa fa-trash-alt"></i></button></a>
 					</td>
 				</tr>

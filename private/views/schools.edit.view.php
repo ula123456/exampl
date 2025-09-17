@@ -27,7 +27,7 @@
 			 	<input autofocus class="form-control" value="<?=get_var('school',$row[0]->school)?>" type="text" name="school" placeholder="School Name"><br><br>
 			 	<input class="btn btn-primary float-end" type="submit" value="Save">
 
-			 	<a href="<?=ROOT?>/schools">
+			 	<a href="schools">
 			 		<input class="btn btn-danger" type="button" value="Cancel">
 			 	</a>
 			 </form>
