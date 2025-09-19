@@ -49,4 +49,4 @@
 	 
 	</div>
  
-<?php $this->view('includes/footer')?>
+<?php $this->view('includes/futer')?>

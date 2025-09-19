@@ -17,8 +17,14 @@ class Schools extends Controller
 		$school = new school();
 		
 		$data = $school->findAll();
+		$crumbs[] = ['Dashboard',''];
+		$crumbs[] = ['Schools','schools'];
 		
-		$this->view('schools',['rows'=>$data]);
+		$this->view('schools',[
+			
+			'crumbs'=>$crumbs,
+			'rows'=>$data
+			]);
 		
 	}
 	function add()
@@ -45,9 +51,13 @@ class Schools extends Controller
 
 		}
 		
-		
+		$crumbs[] = ['Dashboard',''];
+		$crumbs[] = ['Schools','schools'];
+		$crumbs[] = ['Add','schools/add'];
+
 		$this->view('schools.add',[
-			'errors'=>$errors
+			'errors'=>$errors,
+			'crumbs'=>$crumbs
 		
 		]);
 		
@@ -77,12 +87,14 @@ class Schools extends Controller
 		}
 		
 		$row = $school ->where('id',$id);
-		//if (!$row) {	$row = (objekt)[];//kovertirovie masiva v obekt
-		//	$row->school = '';				}
+		$crumbs[] = ['Dashboard',''];
+		$crumbs[] = ['Schools','schools'];
+		$crumbs[] = ['Edit','schools/edit'];
 
 		$this->view('schools.edit',[
 			'row'=>$row,
-			'errors'=>$errors
+			'errors'=>$errors,
+			'crumbs'=>$crumbs
 		
 		]);
 		

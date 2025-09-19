@@ -3,7 +3,7 @@
 <?php $this->view('includes/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-		<?php $this->view('includes/crumbs')?>
+		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
 		
 
@@ -26,9 +26,12 @@
 					<?=$row->user->lastname?></td>
 					<td><?= get_date($row->date)?></td>
 					<td><a href="schools/edit/<?=$row->id?>">
-						<button class="btn-sm btn btn-info"><i class="fa fa-edit"></i></button></a>
+						<button class="btn-sm btn btn-info">1<i class="fa fa-edit"></i></button></a>
 						<a href="schools/delete/<?=$row->id?>">
-						<button class="btn-sm btn btn-danger"><i class="fa fa-trash-alt"></i></button></a>
+						<button class="btn-sm btn btn-danger">1<i class=" fa-trash-alt"></i></button></a>
+						<a href="/switch_school/<?=$row->id?>">	
+						
+						<button class="btn-sm btn btn-success">Switch to<i class="fa fa-trash-alt"></i></button></a>
 					</td>
 				</tr>
 

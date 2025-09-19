@@ -5,7 +5,7 @@
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 		<?php $this->view('includes/crumbs')?>
 
-		<a href="<?=ROOT?>/signup">
+		<a href="signup">
 			<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
 		</a>
 
@@ -33,4 +33,4 @@
 	 
 	</div>
  
-<?php $this->view('includes/footer')?>
+<?php $this->view('includes/futer')?>

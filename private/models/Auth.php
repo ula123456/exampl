@@ -41,9 +41,10 @@ class Auth
 		}
 		return false;
 	}  
+	/// imya fuktsii iz vew prevrashaet v metod naprimer getEmail vavodit email uzara
 	public static function __callStatic($method, $params)
-	{/// imya fuktsii iz vew prevrashaet v metod naprimer getEmail vavodit email uzara
-		$prop = strtolower(str_ireplace("get", "",$method));
+	{
+		 $prop = strtolower(str_ireplace("get", "",$method));
 
 		 if(isset($_SESSION['USER']->$prop ))
 		{
@@ -51,4 +52,27 @@ class Auth
 		}
 		return 'Unknown';
 	}
+	public static function switch_school($id)
+	{
+		
+		if(isset($_SESSION['USER']) && $_SESSION['USER']->rang == 'super_admin')
+		{
+				$user = new user();
+				$school = new school();
+				$row = $school->where('id', $id); 
+				if ($row) 
+				{
+					$row = $row[0];
+					$arr['school_id'] = $row->school_id;
+					if ($user->update($_SESSION['USER']->id,$arr)) 
+					{
+						$_SESSION['USER']->school_id = $row->school_id;
+						$_SESSION['USER']->school_name = $row->school;
+					};echo "<pre>";var_dump($_SESSION['USER']->school_name);
+				}
+				
+			return  true;
+		}
+		return false;
+	} 
 } 

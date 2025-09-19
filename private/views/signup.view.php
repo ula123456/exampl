@@ -37,13 +37,21 @@
 				<option <?=get_select('rang','reception')?> value="reception">Reception</option>
 				<option <?=get_select('rang','lecturer')?> value="lecturer">Lecturer</option>
 				<option <?=get_select('rang','admin')?> value="admin">Admin</option>
+			<?php if(Auth::getRang()=='super_admin'): ?>
+				<option <?=get_select('rang','super_admin')?> value="admin">Super Admin</option>
+			<?php endif; ?>
 			</select>
 
 			<input class="my-2 form-control" value="<?=get_var('password') ?>"type="text" name="password" placeholder="Password">
 			<input class="my-2 form-control" value="<?=get_var('password2') ?>"type="text" name="password2" placeholder="Retype Password">
 			<br>
+			
 			<button class="btn btn-primary float-end">Add User</button>
-			<button class="btn btn-danger">Cancel</button>
+				
+		<a href="/users">
+			<button type="button" class="btn btn-danger">Cancel</button>
+		</a>
+		
 		</div>
 	</form>
 	</div>
