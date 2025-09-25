@@ -1,15 +1,30 @@
-<?php 
+<?php
 
 /**
- * 
+ * Students controller
  */
-
 class Students extends Controller
 {
 	
-	function index($id ='')
+	function index()
 	{
 		// code...
-		echo "this is students".$id;
+		if(!Auth::logged_in())
+		{
+			$this->redirect('login');
+		}
+
+		$user = new user();
+ 		$school_id = Auth::getSchool_id();
+		$data = $user->query("select * from users where school_id = :school_id && rang in ('student') order by id desc",['school_id'=>$school_id]);
+
+		$crumbs[] = ['Dashboard',''];
+		$crumbs[] = ['students','students'];
+
+		$this->view('students',[
+			'rows'=>$data,
+			'crumbs'=>$crumbs,
+			
+		]);
 	}
 }

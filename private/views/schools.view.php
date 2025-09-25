@@ -18,12 +18,12 @@
 	</tr>
 
 			<?php if($rows):?>
-					<?php foreach ($rows as $row):?>
+					<?php foreach ($rows as $row): ?>
 				 
 				<tr>
 					<td><?=$row->school?></td>
 					<td><?=$row->user->firstname?> 
-					<?=$row->user->lastname?></td>
+					    <?=$row->user->lastname?></td>
 					<td><?= get_date($row->date)?></td>
 					<td><a href="schools/edit/<?=$row->id?>">
 						<button class="btn-sm btn btn-info">1<i class="fa fa-edit"></i></button></a>

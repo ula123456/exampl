@@ -65,7 +65,7 @@ function dd($date)
 }
 function get_image($image,$gender = 'male'){
 
-	if(!file_exists($image))
+	if(!file_exists($image=''))
 	{
  		$image = '../private/views/user_female.jpg';
  		if($gender == 'male'){

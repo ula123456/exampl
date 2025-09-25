@@ -45,15 +45,21 @@
 			<input class="my-2 form-control" value="<?=get_var('password') ?>"type="text" name="password" placeholder="Password">
 			<input class="my-2 form-control" value="<?=get_var('password2') ?>"type="text" name="password2" placeholder="Retype Password">
 			<br>
-			
+			<a href="students">
 			<button class="btn btn-primary float-end">Add User</button>
-				
-		<a href="/users">
-			<button type="button" class="btn btn-danger">Cancel</button>
-		</a>
-		
+
+			<?php if($mode == 'students'):?>
+				<a href="students">
+					<button type="button" class="btn btn-danger">Cancel</button>
+				</a>
+			<?php else:?>
+				<a href="users">
+					<button type="button" class="btn btn-danger">Cancel</button>
+				</a>
+			<?php endif;?>
+			
 		</div>
-	</form>
+		</form>
 	</div>
 
 <?php $this->view('includes/futer')?>
