@@ -44,8 +44,8 @@ class Auth
 	/// imya fuktsii iz vew prevrashaet v metod naprimer getEmail vavodit email uzara
 	public static function __callStatic($method, $params)
 	{
-		 $prop = strtolower(str_ireplace("get", "",$method));
-
+		 $prop = strtolower(str_ireplace("get", "",$method));//get ubiraet
+//echo "<pre>";var_dump($_SESSION['USER']);
 		 if(isset($_SESSION['USER']->$prop ))
 		{
 			return $_SESSION['USER']->$prop;
@@ -64,15 +64,17 @@ class Auth
 				{
 					$row = $row[0];
 					$arr['school_id'] = $row->school_id;
-					if ($user->update($_SESSION['USER']->id,$arr)) 
-					{
+
+					
+						$user->update($_SESSION['USER']->id,$arr);
 						$_SESSION['USER']->school_id = $row->school_id;
 						$_SESSION['USER']->school_name = $row->school;
-					};echo "<pre>";var_dump($_SESSION['USER']->school_name);
+
+					
 				}
 				
 			return  true;
 		}
 		return false;
 	} 
-} 
+} //echo "<pre>";var_dump($_SESSION['USER']->id,$arr );

@@ -1,25 +1,29 @@
-<?php 
+<?php
 
 /**
- * 
+ * users controller
  */
-
-class users extends Controller
+class Users extends Controller
 {
 	
 	function index()
 	{
-		if (!Auth::logged_in()) 
+		// code...
+		if(!Auth::logged_in())
 		{
 			$this->redirect('login');
 		}
-		
+
 		$user = new user();
-		$school_id = Auth::getSchool_id();
-		//$data = $user->findAll();
-		$data = $user->query("select * from users where school_id = :school_id",['school_id'=>$school_id]);
-		//echo"<pre>"; var_dump($data);
-		$this->view('users',['rows'=>$data]);
-		
+ 		$school_id = Auth::getSchool_id();
+		$data = $user->query("select * from users where school_id = :school_id && rang not in ('student') order by id desc",['school_id'=>$school_id]);
+
+		$crumbs[] = ['Dashboard',''];
+		$crumbs[] = ['staff','users'];
+
+		$this->view('users',[
+			'rows'=>$data,
+			'crumbs'=>$crumbs,
+		]);
 	}
 }

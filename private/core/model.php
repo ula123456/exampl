@@ -5,7 +5,7 @@
  */
 class Model extends Database
 {
-	//protected $table ;
+	//protected string $table = 'user'; 
 	public $errors = array();
 	
 	public function __construct()
@@ -38,6 +38,26 @@ class Model extends Database
 		return $data;
 		
 	}
+	public function first($id)
+	{
+
+
+		$query="select * from users where user_id = '$id'";
+		$data =  $this->query($query);
+		if (is_array($data)) {
+			// code...
+		
+				if(property_exists($this, 'afterSelect'))
+				{
+					 foreach ( $this->afterSelect as $func)
+					 {
+					 		$data = $this->$func($data);
+					 }
+		 		 }
+		}
+		if(is_array($data)){$data = $data[0];}return $data;
+	}
+
 
 	public function findAll()
 	{

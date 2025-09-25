@@ -3,7 +3,8 @@
 <?php $this->view('includes/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-		<?php $this->view('includes/crumbs')?>
+		
+		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
 		<a href="signup">
 			<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
@@ -13,13 +14,17 @@
 
 			<?php if($rows):?>
 				<?php foreach ($rows as $row):?>
+
+					<?php
+ 			$image = get_image($row->image,$row->gender);
+ 		?>
 				 
 				<div class="card m-2 shadow-sm" style="max-width: 14rem;min-width: 14rem;">
-		  		  <img src="../private/views/user_female.jpg" class="card-img-top " alt="Card image cap">
+		  		  <img src="<?=$image?>?>" class="card-img-top " alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
 				    <p class="card-text"><?=str_replace("_", " ", $row->rang)?></p>
-				    <a href="#" class="btn btn-primary">Profile</a>
+				    <a href="profile/<?=$row->user_id?>" class="btn btn-primary">Profile</a>
 				  </div>
 				</div>
 

@@ -44,5 +44,35 @@ function random_stiring($length){
 	}
 function get_date($date)
 {
-		return date("jS M, Y",strtotime($date));
+		if ($date === null || $date === '') {
+        return '';
+    }
+    // If it's an integer timestamp, use it directly
+    if (is_numeric($date) && (string)(int)$date === (string)$date) {
+        return date('jS M, Y', (int)$date);
+    }
+    $ts = strtotime((string)$date);
+    if ($ts === false) {
+        return '';
+    }
+    return date('jS M, Y', $ts);
+}
+function dd($date)
+{
+	echo"<pre>";
+		return var_dump($date);
+	echo"<pre>";
+}
+function get_image($image,$gender = 'male'){
+
+	if(!file_exists($image))
+	{
+ 		$image = '../private/views/user_female.jpg';
+ 		if($gender == 'male'){
+ 			$image = '../private/views/user_male.jpg';
+ 		}
+ 	}
+
+ 	return $image;
+
 }
