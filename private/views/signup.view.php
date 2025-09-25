@@ -24,7 +24,10 @@
 			<input class="my-2 form-control" value="<?=get_var('lastname') ?>"type="lastname" name="lastname" placeholder="Last Name" >
 			<input class="my-2 form-control" value="<?=get_var('email') ?>"type="email" name="email" placeholder="Email" >
 
-		
+<?php if($mode == 'students'):?>
+	<input type="hidden" value="student" name="rank">
+
+<?php else:?>
 
 			<select class="my-2 form-control" name="gender">
 				<option <?=get_select('gender','')?> value="">--Select a Gender--</option>
@@ -41,7 +44,7 @@
 				<option <?=get_select('rang','super_admin')?> value="admin">Super Admin</option>
 			<?php endif; ?>
 			</select>
-
+<?php endif;?>
 			<input class="my-2 form-control" value="<?=get_var('password') ?>"type="text" name="password" placeholder="Password">
 			<input class="my-2 form-control" value="<?=get_var('password2') ?>"type="text" name="password2" placeholder="Retype Password">
 			<br>
