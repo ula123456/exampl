@@ -35,16 +35,44 @@
 		 
 			</ul>
 
-			<nav class="navbar navbar-light bg-light">
-			  <form class="form-inline">
-			    <div class="input-group">
-			      <div class="input-group-prepend">
-			        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</span>
-			      </div>
-			      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-			    </div>
-			  </form>
-			</nav>
+			
+			<?php 
+			switch ($page_tab) {
+
+					case 'lecturers':
+					include(view_path('class-tab-lecturers'));
+					break;
+
+					case 'students':
+					include(view_path('class-tab-students'));
+					break;
+
+					case 'tests':
+					include(view_path('class-tab-tests'));
+					break;
+
+					case 'lecturers-add':
+					include(view_path('class-tab-lecturers-add'));
+					break;
+
+					case 'students-add':
+					include(view_path('class-tab-students-add'));
+					break;
+
+					case 'tests-add':
+					include(view_path('class-tab-tests-add'));
+					break;
+				
+				default:
+					// code...
+					break;
+			}
+
+
+
+
+
+			?>
 
 		
 		<?php else:?>

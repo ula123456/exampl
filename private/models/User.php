@@ -89,12 +89,14 @@ class user extends Model
 
 	protected function make_user_id($data){
 
-		if (isset($_SESSION['USER']->user_id)) {
-			// code...
-			$data['user_id'] = $_SESSION['USER']->user_id;
-		}
-		
-		return $data;
+			$data['user_id'] = strtolower($data['firstname'] ."." .$data['lastname']) ;
+
+			while ($this->where('user_id', $data['user_id'])) {
+				
+				$data['user_id'] .= rand(100,9999);
+			}
+			
+			return $data;
 	}
 
 	protected function make_school_id($data){
