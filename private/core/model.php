@@ -58,11 +58,31 @@ class Model extends Database
 		if(is_array($data)){$data = $data[0];}return $data;
 	}
 
+	public function first2($query)
+	{
 
-	public function findAll()
+
+		
+		$data =  $this->query($query);
+		if (is_array($data)) {
+			// code...
+		
+				if(property_exists($this, 'afterSelect'))
+				{
+					 foreach ( $this->afterSelect as $func)
+					 {
+					 		$data = $this->$func($data);
+					 }
+		 		 }
+		}
+		if(is_array($data)){$data = $data[0];}return $data;
+	}
+
+
+	public function findAll($orderby = 'desc')
 	{
 		
-		$query="select * from $this->table";
+		$query="select * from $this->table order by id $orderby";
 		$data = $this->query($query);
 		//run function after select
 		if (is_array($data)) {

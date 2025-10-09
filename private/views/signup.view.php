@@ -23,17 +23,18 @@
 			<input class="my-2 form-control" value="<?=get_var('firstname') ?>" type="firstname" name="firstname" placeholder="Frist Name" >
 			<input class="my-2 form-control" value="<?=get_var('lastname') ?>"type="lastname" name="lastname" placeholder="Last Name" >
 			<input class="my-2 form-control" value="<?=get_var('email') ?>"type="email" name="email" placeholder="Email" >
-
-<?php if($mode == 'students'):?>
-	<input type="hidden" value="student" name="rank">
-
-<?php else:?>
-
+			
 			<select class="my-2 form-control" name="gender">
 				<option <?=get_select('gender','')?> value="">--Select a Gender--</option>
 				<option <?=get_select('gender','male')?> value="male">Male</option>
 				<option <?=get_select('gender','female')?> value="female">Female</option>
 			</select>
+<?php if($mode == 'students'):?>
+	<input type="hidden" value="student" name="rang">
+
+<?php else:?>
+
+			
 			<select class="my-2 form-control" name="rang">
 				<option <?=get_select('rang','')?> value="">--Select a Rank--</option>
 				<option <?=get_select('rang','student')?> value="student">Student</option>

@@ -6,38 +6,31 @@
 
 		<?php if($row):?>
 
-		<?php
- 			$image = get_image($row->image,$row->gender);
- 		?>
-
+		
 		<div class="row">
-			<div class="col-sm-4 col-md-3">
-				<img src="<?=$image?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
-				<h3 class="text-center"><?=esc($row->firstname)?> <?=esc($row->lastname)?></h3>
-			</div>
-			<div class="col-sm-8 col-md-9 bg-light p-2">
+			<center><h5><?=esc(ucwords($row->class) )?></h5></center>
+			
+			
 				<table class="table table-hover table-striped table-bordered">
-					<tr><th>First Name:</th><td><?=esc($row->firstname)?></td></tr>
-					<tr><th>Last Name:</th><td><?=esc($row->lastname)?></td></tr>
-					<tr><th>Email:</th><td><?=esc($row->email)?></td></tr>
-					<tr><th>Gender:</th><td><?=esc($row->gender)?></td></tr>
-					<tr><th>Rank:</th><td><?=ucwords(str_replace("_"," ",$row->rang))?></td></tr>
+					<tr><th>Class Name:</th><td><?=esc($row->class)?></td></tr>
+					<tr><th>Ceated by:</th><td><?=esc($row->user->firstname)?> <?=esc($row->user->lastname)?></td></tr>
+					
 					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 
 				</table>
-			</div>
+			
 		</div>
 		<br>
-		<div class="container-fluid">
+		
 			<ul class="nav nav-tabs">
 			  <li class="nav-item">
-			    <a class="nav-link active" href="#">Basic Info</a>
+			    <a class="nav-link <?=$page_tab=='lecturers'?'active':'' ?>" href="https://exampl/singl_class/<?=$row->class_id?>?tab=lecturers">Lectures</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="#">Classes</a>
+			    <a class="nav-link <?=$page_tab=='students'?'active':'' ?>" href="https://exampl/singl_class/<?=$row->class_id?>?tab=students">Students</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="#">Tests</a>
+			    <a class="nav-link <?=$page_tab=='tests'?'active':'' ?>" href="https://exampl/singl_class/<?=$row->class_id?>?tab=tests">Tests</a>
 			  </li>
 		 
 			</ul>
@@ -53,9 +46,9 @@
 			  </form>
 			</nav>
 
-		</div>
+		
 		<?php else:?>
-			<center><h4>That profile was not found!</h4></center>
+			<center><h4>That class was not found!</h4></center>
 		<?php endif;?>
 
 	</div>

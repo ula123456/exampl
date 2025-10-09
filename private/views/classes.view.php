@@ -5,14 +5,14 @@
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
-		<h5>Schools</h5>
+		<h5>Classes</h5>
 
 		<div class="card-group justify-content-center">
 			
 <table class="table table-striped table-hover">
-	<tr><th>School</th> <th>Created by</th><th>Data</th>
+	<tr><th>Class Name</th> <th>Created by</th><th>Data</th>
 		<th>
-			<a href="schools/add">
+			<a href="classes/add">
 			  <button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add New</button>
 			</a>
 		</th>
@@ -22,25 +22,28 @@
 					<?php foreach ($rows as $row): ?>
 				 
 				<tr>
-					<td><button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right ">></i> </button> </td>
-					<td><?=$row->school?></td>
+					<td>
+						<a href="singl_class/<?=$row->class_id?>"><button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right ">></i> </button> 
+						</a>
+					</td>
+					<td><?=$row->class?>
+					</td>
 					<td><?=$row->user->firstname?> 
 					    <?=$row->user->lastname?></td>
 					<td><?= get_date($row->date)?></td>
-					<td><a href="schools/edit/<?=$row->id?>">
+					<td><a href="classes/edit/<?=$row->id?>">
 						<button class="btn-sm btn btn-info">1<i class="fa fa-edit"></i></button></a>
 						
-						<a href="schools/delete/<?=$row->id?>">
+						<a href="classes/delete/<?=$row->id?>">
 						<button class="btn-sm btn btn-danger">1<i class=" fa-trash-alt"></i></button></a>
 						
-						<a href="switch_school/<?=$row->id?>">	
-						<button class="btn-sm btn btn-success">Switch to<i class="fa fa-trash-alt"></i></button></a>
+						
 					</td>
 				</tr>
 
 	 				<?php endforeach;?>
  			<?php else:?>
- 				<h4>No schools members were found at this time</h4>
+ 				<h4>No Classes members were found at this time</h4>
  			<?php endif;?>
  </table>
 		</div>
