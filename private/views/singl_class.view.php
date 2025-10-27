@@ -36,43 +36,53 @@
 			</ul>
 
 			
-			<?php 
-			switch ($page_tab) {
+		<?php
 
-					case 'lecturers':
-					include(view_path('class-tab-lecturers'));
-					break;
+		 			switch ($page_tab) {
+		 				case 'lecturers':
+		 					// code...          
+		 					include(view_path('class-tab-lecturers'));
+		 					break;
 
-					case 'students':
-					include(view_path('class-tab-students'));
-					break;
+		 				case 'students':
+		 					// code...
+		 					include(view_path('class-tab-students'));
+		 					break;
 
-					case 'tests':
-					include(view_path('class-tab-tests'));
-					break;
+		 				case 'tests':
+		 					// code...
+		 					include(view_path('class-tab-tests'));
 
-					case 'lecturers-add':
-					include(view_path('class-tab-lecturers-add'));
-					break;
+		 					break;
+		 				case 'lecturer-add':
+		 					// code...
+		 					include(view_path('class-tab-lecturers-add'));
 
-					case 'students-add':
-					include(view_path('class-tab-students-add'));
-					break;
+		 					break;
+		 				case 'lecturer-remove':
+		 					// code...
+		 					include(view_path('class-tab-lecturers-remove'));
 
-					case 'tests-add':
-					include(view_path('class-tab-tests-add'));
-					break;
-				
-				default:
-					// code...
-					break;
-			}
+		 					break;
+		 					
+		 				case 'students-add':
+		 					// code...
+		 					include(view_path('class-tab-students-add'));
+
+		 					break;
+		 				case 'tests-add':
+		 					// code...
+		 					include(view_path('class-tab-tests-add'));
+
+		 					break;
+		 				
+		 				default:
+		 					// code...
+		 					break;
+		 			}
 
 
-
-
-
-			?>
+		 		?>
 
 		
 		<?php else:?>

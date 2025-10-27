@@ -79,11 +79,10 @@ function get_image($image,$gender = 'male'){
 function view_path($view)
 {
 	if (file_exists("private/views/".$view.".inc.php")) 
-		{
-			return ("private/views/".$view.".inc.php");
-		}else{
-				// inache oshibka 404
-			return ("private/views/404.view.php");
-		}
+	{
+		return ("private/views/".$view.".inc.php");
+	}else{// inache oshibka 404
+		return ("private/views/404.view.php");
+	}
 
 }
