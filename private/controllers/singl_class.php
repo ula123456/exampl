@@ -37,13 +37,17 @@ class singl_class extends Controller
 
 				if(isset($_POST['search'])){
 
-				//if(trim($_POST['name']) != ""){
+					if(trim($_POST['name']) != ""){
 
 //find lecturer
-					$user = new User();
-					$name = "%".trim($_POST['name'])."%";
-					$query = "select * from users where (firstname like :fname || lastname like :lname)  and rang = 'lecturer' limit 10";
-					$results = $user->query($query,['fname'=>$name,'lname'=>$name,]);
+						$user = new User();
+						$name = "%".trim($_POST['name'])."%";
+						$query = "select * from users where (firstname like :fname || lastname like :lname)  and rang = 'lecturer' limit 10";
+						$results = $user->query($query,['fname'=>$name,'lname'=>$name,]);
+					}else{
+							$errors[] = "Please type name to find";
+						}
+
 				}else	
 				if(isset($_POST['selected'])){
 
@@ -99,43 +103,5 @@ class singl_class extends Controller
 		$this->view('singl_class',$data);
 	}
 }
-//else{ $errors[] = "please type a name to find";}
-			
-			//}
-				
-			//	if($page_tab == 'lecturer-add'){
 
-				//	if(!$lect->query($query,[
-				//		'user_id' => $_POST['selected'],
-				//		'class_id' => $id,					])){
-
-					
-
-				//	}else{
-				//		$errors[] = "that lecturer already belongs to this class";
-			//		}				}else
-			//	if($page_tab == 'lecturer-remove'){
-//
-				//	if($row = $lect->query($query,[
-				//		'user_id' => $_POST['selected'],
-				//		'class_id' => $id,
-				//	])){
-
-					//	$arr = array();
- 					//	$arr['disabled'] 	= 1;
- 
-				//		$lect->update($row[0]->id,$arr);
-
-				//		$this->redirect('single_class/'.$id.'?tab=lecturers');
-
-				//	}else{
-				//		
-			//		}
-			//	}
-
-		//	}$errors[] = "that lecturer was not found in this class";
-
-
-		//
-			
 			
