@@ -12,15 +12,15 @@
 			
 			
 				<table class="table table-hover table-striped table-bordered">
-					<tr><th>Class Name:</th><td><?=esc($row->class)?></td></tr>
-					<tr><th>Ceated by:</th><td><?=esc($row->user->firstname)?> <?=esc($row->user->lastname)?></td></tr>
 					
-					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
+					<tr><th>Ceated by:</th><td><?=esc($row->user->firstname)?> <?=esc($row->user->lastname)?></td>
+					
+					<th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 
 				</table>
 			
 		</div>
-		<br>
+		
 		
 			<ul class="nav nav-tabs">
 			  <li class="nav-item">

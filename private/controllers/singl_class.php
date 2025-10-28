@@ -54,7 +54,10 @@ class singl_class extends Controller
 //add lecturer
 
 // proveryaet nalichiya odinakovih userov
-						$query="select id from class_lecturers where user_id = :user_id && class_id = :class_id limit 1 ";
+						$query="select id from class_lecturers where user_id = :user_id && class_id = :class_id && disabled = 0 limit 1 ";
+					//add lecturer
+					if ($page_tab == 'lecturer-add') {
+						
 
 						if (!$lect->query($query,[
 
@@ -70,25 +73,44 @@ class singl_class extends Controller
 							$arr['date'] = date("Y-m-d H:i:s");
 						$lect->insert($arr);
 
-						$this->redirect('single_class/'.$id.'?tab=lecturers');
+						$this->redirect('singl_class/'.$id.'?tab=lecturers');
 						}else{
 
 							$errors[] = "that lecturer already belongs to this class";
 									
 						}
 						
+					}else
+					if ($page_tab == 'lecturer-remove') {
 
+						if ($row=$lect->query($query,[
+							'user_id' => $_POST['selected'],
+							'class_id' => $id,
+						])) {
+							
+							$arr = array();
+		 					$arr['disabled'] 	= 1;
+							
+							$lect->update($row[0]->id, $arr);
+							
+							$this->redirect('singl_class/'.$id.'?tab=lecturers');
+						}else{
+							$errors[] = "that lecturer was not found in this class";
+						}
+
+					}
 				
 				}
 		}else 
 		if($page_tab == 'lecturers'){
 
 //display lecturers
-			        
+			        				
 			$query = "select * from class_lecturers where class_id = :class_id && disabled = 0";
 			
-			$lecturers = $lect->where('class_id',$id);
-
+			//$lecturers = $lect->where('class_id',$id);
+			$lecturers = $lect->query($query,['class_id'=>$id]);
+//dd($query);
 			$data['lecturers'] 		= $lecturers;
 	
 		}
@@ -102,6 +124,8 @@ class singl_class extends Controller
 		//dd($data['row'] );
 		$this->view('singl_class',$data);
 	}
+
+
 }
 
 			
