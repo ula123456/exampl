@@ -21,11 +21,12 @@
 	</nav>
 
 <div class="card-group justify-content-center">
+
 	<?php if(is_array($lecturers)):?>
 		<?php foreach($lecturers as $lecturer):?>
 			
 			<?php 
-				$row = $lecturer->user;dd($lecturer);
+				$row = $lecturer->user;
 				include(view_path('user'));
 
 			?>
